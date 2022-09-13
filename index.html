@@ -7,22 +7,42 @@
     <title>Placar</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <label>Administrar jogadores</label>
-    <input type="text">
-    <button>Adicionar</button>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Vitórias</th>
-                <th>Empates</th>
-                <th>Derrotas</th>
-                <th>Pontos</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+<body class="wrapper">
+    <main class="principal">
+        <h2 class="titulo">Half-Life</h2>
+        <!-- <div class="controle">
+            <label for="controle__input" class="controle__label">Administrar jogadores</label>
+            <input id="controle__input" class="controle__input" type="text">
+            <button class="controle__adicionar">Adicionar</button>
+            <button class="controle__limpar">Limpar</button>
+        </div> -->
+        <table class="tabela">
+            <thead class="tabela__cabecalho">
+                <tr class="linha">
+                    <th class="linha__cabecalho"></th>
+                    <th class="linha__cabecalho">Pontos</th>
+                    <th class="linha__cabecalho">Baixas</th>
+                    <th class="linha__cabecalho">Latência</th>
+                    <th class="linha__cabecalho">Voz</th>
+                </tr>
+            </thead>
+            <tbody class="tabela__corpo">
+                <tr>
+                    <td>Shepard</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>5</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Gordon</td>
+                    <td>5</td>
+                    <td>8</td>
+                    <td>7</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
 </body>
 </html>
