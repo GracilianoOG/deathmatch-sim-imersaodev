@@ -22,6 +22,11 @@ html, body {
     margin-bottom: 1rem;
 }
 
+.container {
+    height: 70%;
+    overflow-y: auto;
+}
+
 .principal {
     background-color: rgba(0, 0, 0, .5);
     height: 80%;
@@ -65,6 +70,29 @@ th, td {
     height: 1.5rem;
 }
 
+.controle {
+    margin-top: 2rem;
+}
+
+.controle__label {
+    color: rgb(255, 170, 0);
+    display: block;
+}
+
+.controle__input {
+    border: none;
+    height: 2rem;
+    margin-top: 1rem;
+    padding: 0 .5rem 0 .5rem;
+    outline: none;
+}
+
+.controle__adicionar, .controle__limpar {
+    border: none;
+    height: 2rem;
+    padding: 0 1rem 0 1rem;
+}
+
 @media screen and (min-width: 748px) {
     th:first-child {
         width: 60%;
@@ -76,5 +104,11 @@ th, td {
 
     .principal {
         width: 70%;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .container {
+        height: 45%;
     }
 }
