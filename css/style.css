@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper {
+    align-items: center;
+    background-image: url("../img/background.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+
+.titulo {
+    color: rgb(255, 170, 0);
+    margin-bottom: 1rem;
+}
+
+.principal {
+    background-color: rgba(0, 0, 0, .5);
+    height: 80%;
+    margin: 0 auto;
+    padding: .75rem 5% .75rem 5%;
+    width: 80%;
+}
+
+.tabela {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tabela__corpo tr:hover {
+    background-color: rgba(255, 170, 0, .25);
+}
+
+th {
+    color: rgb(255, 170, 0);
+    text-align: center;
+}
+
+th:first-child {
+    width: 30%;
+}
+
+th:not(:first-child) {
+    width: 17.5%;
+}
+
+td {
+    color: white;
+    text-align: center;
+}
+
+td:first-child {
+    text-align: left;
+}
+
+th, td {
+    height: 1.5rem;
+}
+
+@media screen and (min-width: 748px) {
+    th:first-child {
+        width: 60%;
+    }
+    
+    th:not(:first-child) {
+        width: 10%;
+    }
+
+    .principal {
+        width: 70%;
+    }
+}
