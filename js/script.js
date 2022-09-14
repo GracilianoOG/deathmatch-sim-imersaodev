@@ -1,5 +1,6 @@
 const tabelaCorpo = document.querySelector(".tabela__corpo");
 const inputJogador = document.querySelector(".controle__input");
+const mensagem = document.querySelector(".controle__mensagem");
 const botaoAdicionaJogador = document.querySelector(".controle__adicionar");
 const gordon = {
     nome: "Gordon",
@@ -25,7 +26,6 @@ botaoAdicionaJogador.addEventListener("click", () => {
 function criaNovoJogador(nomeJogador) {
     const nomeFormatado = formataNome(nomeJogador);
     if(!validaNome(nomeFormatado)) {
-        console.log("Nome inválido");
         return;
     }
     const jogador = {
@@ -67,7 +67,9 @@ function formataNome(jogadorNome) {
 
 function validaNome(jogadorNome) {
     if(jogadorNome == "") {
+        mensagem.textContent = "Campo vazio!";
         return false;
     }
+    mensagem.textContent = "";
     return true;
 }
