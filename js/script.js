@@ -2,25 +2,12 @@ const tabelaCorpo = document.querySelector(".tabela__corpo");
 const inputJogador = document.querySelector(".controle__input");
 const mensagem = document.querySelector(".controle__mensagem");
 const botaoAdicionaJogador = document.querySelector(".controle__adicionar");
-const gordon = {
-    nome: "Gordon",
-    pontos: 56,
-    baixas: 45,
-    latencia: 200,
-    voz: true
-};
-const shepard = {
-    nome: "Shepard",
-    pontos: 5,
-    baixas: 2,
-    latencia: 87,
-    voz: false
-};
 const listaJogadores = [];
 
 botaoAdicionaJogador.addEventListener("click", () => {
     criaNovoJogador(inputJogador.value);
     limpaCampo();
+    novaRodada();
 });
 
 function criaNovoJogador(nomeJogador) {
@@ -41,13 +28,24 @@ function criaNovoJogador(nomeJogador) {
 
 function adicionaJogador(jogador) {
     tabelaCorpo.innerHTML += 
-    `<tr>
-        <td>${jogador.nome}</td>
-        <td>${jogador.pontos}</td>
-        <td>${jogador.baixas}</td>
-        <td>${jogador.latencia}</td>
-        <td>${adicionaIconeDeVoz(jogador.voz)}</td>
+    `<tr class="jogador">
+        <td class="jogador__nome">${jogador.nome}</td>
+        <td class="jogador__pontos">${jogador.pontos}</td>
+        <td class="jogador__baixas">${jogador.baixas}</td>
+        <td class="jogador__latencia">${jogador.latencia}</td>
+        <td class="jogador__voz">${adicionaIconeDeVoz(jogador.voz)}</td>
     </tr>`;
+}
+
+function adicionaJogadores(jogadores) {
+    for(let jogador of jogadores) {
+        adicionaJogador(jogador);
+    }
+}
+
+function atualizaTela() {
+    tabelaCorpo.innerHTML = "";
+    adicionaJogadores(listaJogadores);
 }
 
 function adicionaIconeDeVoz(bool) {
@@ -85,4 +83,55 @@ function procuraNomeRepetido(listaJogadores, jogadorNome) {
         }
     }
     return false;
+}
+
+function novaRodada() {
+    if(listaJogadores.length < 2) {
+        return;
+    }
+
+    const jogadores = geraJogadoresAleatorios();
+    const jogador1 = jogadores[0];
+    const jogador2 = jogadores[1];
+    // console.log(jogadores);
+
+    geraLatenciaAleatoria();
+
+    if(jogador1.latencia < jogador2.latencia) {
+        jogador1.pontos++;
+        jogador2.baixas++;
+        console.log(jogador1.nome + " matou " + jogador2.nome);
+    } else if(jogador1.latencia > jogador2.latencia) {
+        jogador1.baixas++;
+        jogador2.pontos++;
+        console.log(jogador2.nome + " matou " + jogador1.nome);
+    }
+
+    listaJogadores.sort((a, b) => {
+        return b.pontos - a.pontos;
+    });
+
+    atualizaTela();
+}
+
+function geraLatenciaAleatoria() {
+    for(let jogador in listaJogadores) {
+        listaJogadores[jogador].latencia = Math.floor(Math.random() * 201);
+    }
+}
+
+function geraIndexAleatorioDoJogador() {
+    return Math.floor(Math.random() * listaJogadores.length);
+}
+
+function geraJogadoresAleatorios() {
+    let jogador1 = 0;
+    let jogador2 = 0;
+
+    while(jogador1 == jogador2) {
+        jogador1 = listaJogadores[geraIndexAleatorioDoJogador()];
+        jogador2 = listaJogadores[geraIndexAleatorioDoJogador()];
+    }
+
+    return [jogador1, jogador2];
 }
