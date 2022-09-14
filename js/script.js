@@ -2,11 +2,15 @@ const tabelaCorpo = document.querySelector(".tabela__corpo");
 const inputJogador = document.querySelector(".controle__input");
 const mensagem = document.querySelector(".controle__mensagem");
 const botaoAdicionaJogador = document.querySelector(".controle__adicionar");
+const botaoExecutaPartida = document.querySelector(".executa-partida");
 const listaJogadores = [];
 
 botaoAdicionaJogador.addEventListener("click", () => {
     criaNovoJogador(inputJogador.value);
     limpaCampo();
+});
+
+botaoExecutaPartida.addEventListener("click", () => {
     novaRodada();
 });
 
