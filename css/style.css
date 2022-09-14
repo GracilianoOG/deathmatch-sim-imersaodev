@@ -19,7 +19,18 @@ html, body {
 
 .titulo {
     color: rgb(255, 170, 0);
+    display: inline-block;
     margin-bottom: 1rem;
+}
+
+.executa-partida {
+    background-color: rgb(49, 49, 49);
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 170, 0);
+    float: right;
+    font-size: 1rem;
+    padding: .25rem;
 }
 
 .container {
@@ -71,7 +82,7 @@ th, td {
 }
 
 .controle {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .controle__label {
@@ -96,7 +107,7 @@ th, td {
 .controle__mensagem {
     color: red;
     font-size: 1rem;
-    height: 1rem;
+    height: 1.5rem;
     margin-top: .5rem;
 }
 
