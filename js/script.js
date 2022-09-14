@@ -19,6 +19,7 @@ const listaJogadores = [gordon, shepard];
 
 botaoAdicionaJogador.addEventListener("click", () => {
     criaNovoJogador(inputJogador.value);
+    limpaCampo();
 });
 
 function criaNovoJogador(nomeJogador) {
@@ -30,7 +31,7 @@ function criaNovoJogador(nomeJogador) {
         voz: false
     }
     adicionaJogador(jogador);
-    listaJogadores.push(jogador);
+    // listaJogadores.push(jogador);
 }
 
 function adicionaJogador(jogador) {
@@ -49,4 +50,8 @@ function adicionaIconeDeVoz(bool) {
         return "🔊";
     }
     return "🔈";
+}
+
+function limpaCampo() {
+    inputJogador.value = "";
 }
