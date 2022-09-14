@@ -23,6 +23,11 @@ botaoAdicionaJogador.addEventListener("click", () => {
 });
 
 function criaNovoJogador(nomeJogador) {
+    const nomeFormatado = formataNome(nomeJogador);
+    if(!validaNome(nomeFormatado)) {
+        console.log("Nome inválido");
+        return;
+    }
     const jogador = {
         nome: nomeJogador,
         pontos: 0,
@@ -54,4 +59,15 @@ function adicionaIconeDeVoz(bool) {
 
 function limpaCampo() {
     inputJogador.value = "";
+}
+
+function formataNome(jogadorNome) {
+    return jogadorNome.trim();
+}
+
+function validaNome(jogadorNome) {
+    if(jogadorNome == "") {
+        return false;
+    }
+    return true;
 }
