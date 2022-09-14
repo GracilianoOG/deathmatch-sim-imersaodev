@@ -16,7 +16,7 @@ const shepard = {
     latencia: 87,
     voz: false
 };
-const listaJogadores = [gordon, shepard];
+const listaJogadores = [];
 
 botaoAdicionaJogador.addEventListener("click", () => {
     criaNovoJogador(inputJogador.value);
@@ -36,7 +36,7 @@ function criaNovoJogador(nomeJogador) {
         voz: false
     }
     adicionaJogador(jogador);
-    // listaJogadores.push(jogador);
+    listaJogadores.push(jogador);
 }
 
 function adicionaJogador(jogador) {
@@ -70,6 +70,19 @@ function validaNome(jogadorNome) {
         mensagem.textContent = "Campo vazio!";
         return false;
     }
+    if(procuraNomeRepetido(listaJogadores, jogadorNome)) {
+        mensagem.textContent = "Este jogador já existe!";
+        return false;
+    }
     mensagem.textContent = "";
     return true;
+}
+
+function procuraNomeRepetido(listaJogadores, jogadorNome) {
+    for(let jogador of listaJogadores) {
+        if(jogador.nome == jogadorNome) {
+            return true;
+        }
+    }
+    return false;
 }
