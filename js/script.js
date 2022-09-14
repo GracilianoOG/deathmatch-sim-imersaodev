@@ -69,14 +69,14 @@ function formataNome(jogadorNome) {
 
 function validaNome(jogadorNome) {
     if(jogadorNome == "") {
-        mensagem.textContent = "Campo vazio!";
+        setaMensagem("Campo vazio!");
         return false;
     }
     if(procuraNomeRepetido(listaJogadores, jogadorNome)) {
-        mensagem.textContent = "Este jogador já existe!";
+        setaMensagem("Este jogador já existe!");
         return false;
     }
-    mensagem.textContent = "";
+    setaMensagem();
     return true;
 }
 
@@ -91,6 +91,7 @@ function procuraNomeRepetido(listaJogadores, jogadorNome) {
 
 function novaRodada() {
     if(listaJogadores.length < 2) {
+        setaMensagem("Adicione pelo menos dois jogadores!");
         return;
     }
 
@@ -138,4 +139,8 @@ function geraJogadoresAleatorios() {
     }
 
     return [jogador1, jogador2];
+}
+
+function setaMensagem(mensagemPassada = "") {
+    mensagem.textContent = mensagemPassada;
 }
