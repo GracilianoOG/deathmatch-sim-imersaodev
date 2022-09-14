@@ -93,6 +93,13 @@ th, td {
     padding: 0 1rem 0 1rem;
 }
 
+.controle__mensagem {
+    color: red;
+    font-size: 1rem;
+    height: 1rem;
+    margin-top: .5rem;
+}
+
 @media screen and (min-width: 748px) {
     th:first-child {
         width: 60%;
