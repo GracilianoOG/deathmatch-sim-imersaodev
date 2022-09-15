@@ -96,17 +96,30 @@ th, td {
 }
 
 .controle__input {
-    border: none;
+    border: 1px solid transparent;
+    box-sizing: border-box;
     height: 2rem;
     margin-top: 1rem;
-    padding: 0 .5rem 0 .5rem;
     outline: none;
+    padding: 0 .5rem 0 .5rem;
+    transition: border-color 200ms;
+}
+
+.controle__input:focus {
+    border-color: rgb(255, 170, 0);
 }
 
 .controle__adicionar, .controle__limpar {
     border: none;
+    cursor: pointer;
     height: 2rem;
     padding: 0 1rem 0 1rem;
+    transition: background-color 200ms;
+}
+
+.controle__adicionar:hover {
+    background-color: rgb(255, 170, 0);
+    color: white;
 }
 
 .controle__mensagem {
