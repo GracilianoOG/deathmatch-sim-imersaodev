@@ -24,13 +24,18 @@ html, body {
 }
 
 .executa-partida {
-    background-color: rgb(49, 49, 49);
+    background-color: rgb(50, 50, 50);
     border: none;
     border-radius: 5px;
     color: rgb(255, 170, 0);
+    cursor: pointer;
     float: right;
     font-size: 1rem;
     padding: .25rem;
+}
+
+.executa-partida:hover {
+    background-color: rgb(70, 70, 70);
 }
 
 .container {
