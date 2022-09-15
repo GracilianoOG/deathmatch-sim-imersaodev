@@ -57,7 +57,7 @@ function adicionaJogadores(jogadores) {
     }
 }
 
-function atualizaTela() {
+function atualizaTabela() {
     tabelaCorpo.innerHTML = "";
     adicionaJogadores(listaJogadores);
 }
@@ -105,11 +105,22 @@ function novaRodada() {
         return;
     }
 
+    geraLatenciaAleatoria();
+    decidePlacar();
+    atualizaListaDeJogadores();
+    atualizaTabela();
+}
+
+function atualizaListaDeJogadores() {
+    listaJogadores.sort((a, b) => {
+        return b.pontos - a.pontos;
+    });
+}
+
+function decidePlacar() {
     const jogadores = geraJogadoresAleatorios();
     const jogador1 = jogadores[0];
     const jogador2 = jogadores[1];
-
-    geraLatenciaAleatoria();
 
     if(jogador1.latencia < jogador2.latencia) {
         jogador1.ganhouDe(jogador2);
@@ -122,12 +133,6 @@ function novaRodada() {
         console.log(jogador1.nome + " matou " + jogador2.nome);
         console.log(jogador2.nome + " matou " + jogador1.nome);
     }
-
-    listaJogadores.sort((a, b) => {
-        return b.pontos - a.pontos;
-    });
-
-    atualizaTela();
 }
 
 function geraLatenciaAleatoria() {
