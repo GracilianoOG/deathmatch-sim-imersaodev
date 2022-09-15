@@ -124,14 +124,14 @@ function decidePlacar() {
 
     if(jogador1.latencia < jogador2.latencia) {
         jogador1.ganhouDe(jogador2);
-        console.log(jogador1.nome + " matou " + jogador2.nome);
+        // console.log(jogador1.nome + " matou " + jogador2.nome);
     } else if(jogador1.latencia > jogador2.latencia) {
         jogador2.ganhouDe(jogador1);
-        console.log(jogador2.nome + " matou " + jogador1.nome);
+        // console.log(jogador2.nome + " matou " + jogador1.nome);
     } else {
         jogador1.empatouCom(jogador2);
-        console.log(jogador1.nome + " matou " + jogador2.nome);
-        console.log(jogador2.nome + " matou " + jogador1.nome);
+        // console.log(jogador1.nome + " matou " + jogador2.nome);
+        // console.log(jogador2.nome + " matou " + jogador1.nome);
     }
 }
 
