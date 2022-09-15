@@ -1,3 +1,4 @@
+(() => {
 const tabelaCorpo = document.querySelector(".tabela__corpo");
 const inputJogador = document.querySelector(".controle__input");
 const mensagem = document.querySelector(".controle__mensagem");
@@ -160,3 +161,4 @@ function geraJogadoresAleatorios() {
 function setaMensagem(mensagemPassada = "") {
     mensagem.textContent = mensagemPassada;
 }
+})();
