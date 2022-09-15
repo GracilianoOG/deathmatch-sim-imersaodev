@@ -24,7 +24,17 @@ function criaNovoJogador(nomeJogador) {
         pontos: 0,
         baixas: 0,
         latencia: 0,
-        voz: false
+        voz: false,
+        ganhouDe: function(outroJogador) {
+            this.pontos++;
+            outroJogador.baixas++;
+        },
+        empatouCom: function(outroJogador) {
+            this.pontos++;
+            this.baixas++;
+            outroJogador.pontos++;
+            outroJogador.baixas++;
+        }
     }
     adicionaJogador(jogador);
     listaJogadores.push(jogador);
@@ -98,17 +108,18 @@ function novaRodada() {
     const jogadores = geraJogadoresAleatorios();
     const jogador1 = jogadores[0];
     const jogador2 = jogadores[1];
-    // console.log(jogadores);
 
     geraLatenciaAleatoria();
 
     if(jogador1.latencia < jogador2.latencia) {
-        jogador1.pontos++;
-        jogador2.baixas++;
+        jogador1.ganhouDe(jogador2);
         console.log(jogador1.nome + " matou " + jogador2.nome);
     } else if(jogador1.latencia > jogador2.latencia) {
-        jogador1.baixas++;
-        jogador2.pontos++;
+        jogador2.ganhouDe(jogador1);
+        console.log(jogador2.nome + " matou " + jogador1.nome);
+    } else {
+        jogador1.empatouCom(jogador2);
+        console.log(jogador1.nome + " matou " + jogador2.nome);
         console.log(jogador2.nome + " matou " + jogador1.nome);
     }
 
